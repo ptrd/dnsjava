@@ -571,6 +571,11 @@
             <version>2.16.0</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>tech.kwik</groupId>
+            <artifactId>kwik</artifactId>
+            <version>0.8.10</version>
+        </dependency>
     </dependencies>
 
     <profiles>

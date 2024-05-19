@@ -16,6 +16,7 @@ import org.xbill.DNS.Type;
 import org.xbill.DNS.WireParseException;
 import org.xbill.DNS.ZoneTransferException;
 import org.xbill.DNS.ZoneTransferIn;
+import org.xbill.DNS.doq.SimpleDoqResolver;
 
 /**
  * A dnsjava-based copy of the {@code dig} CLI tool.
@@ -144,6 +145,10 @@ public class dig {
 
           case 't':
             res.setTCP(true);
+            break;
+
+          case 'Q':
+            res = new SimpleDoqResolver(res);
             break;
 
           case 'i':

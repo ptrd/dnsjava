@@ -10,8 +10,9 @@ module org.dnsjava {
   requires static com.sun.jna.platform;
   requires static java.net.http;
   requires org.slf4j;
+  requires kwik;
 
-  exports org.xbill.DNS;
+    exports org.xbill.DNS;
   exports org.xbill.DNS.config;
   exports org.xbill.DNS.dnssec;
   exports org.xbill.DNS.hosts;

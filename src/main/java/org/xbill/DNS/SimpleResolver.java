@@ -268,7 +268,7 @@ public class SimpleResolver implements Resolver {
     return timeoutValue;
   }
 
-  private Message parseMessage(byte[] b) throws WireParseException {
+  protected Message parseMessage(byte[] b) throws WireParseException {
     try {
       return new Message(b);
     } catch (IOException e) {
@@ -279,7 +279,7 @@ public class SimpleResolver implements Resolver {
     }
   }
 
-  private void verifyTSIG(Message query, Message response, byte[] b) {
+  protected void verifyTSIG(Message query, Message response, byte[] b) {
     if (tsig == null) {
       return;
     }
@@ -351,7 +351,7 @@ public class SimpleResolver implements Resolver {
     return sendAsync(ednsTsigQuery, useTCP, executor);
   }
 
-  CompletableFuture<Message> sendAsync(Message query, boolean forceTcp, Executor executor) {
+  protected CompletableFuture<Message> sendAsync(Message query, boolean forceTcp, Executor executor) {
     int qid = query.getHeader().getID();
     byte[] out = query.toWire(Message.MAXLENGTH);
     int udpSize = maxUDPSize(query);

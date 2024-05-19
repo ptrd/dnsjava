@@ -144,7 +144,7 @@ class TSIGTest {
     SimpleResolver res =
         new SimpleResolver("127.0.0.1") {
           @Override
-          CompletableFuture<Message> sendAsync(Message query, boolean forceTcp, Executor executor) {
+          protected CompletableFuture<Message> sendAsync(Message query, boolean forceTcp, Executor executor) {
             byte[] out = query.toWire(Message.MAXLENGTH);
             try {
               return CompletableFuture.completedFuture(new Message(out));
